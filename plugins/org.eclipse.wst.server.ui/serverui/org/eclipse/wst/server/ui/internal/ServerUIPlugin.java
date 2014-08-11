@@ -52,7 +52,7 @@ import org.osgi.framework.BundleContext;
  * The server UI plugin class.
  */
 public class ServerUIPlugin extends AbstractUIPlugin {
-	protected static final String VIEW_ID = "org.eclipse.wst.server.ui.ServersView";
+	public static final String VIEW_ID = "org.eclipse.wst.server.ui.ServersView";
 
 	// server UI plugin id
 	public static final String PLUGIN_ID = "org.eclipse.wst.server.ui";

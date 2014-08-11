@@ -39,18 +39,19 @@ import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.navigator.*;
 import org.eclipse.ui.part.PageBook;
+import org.eclipse.ui.views.properties.IPropertySheetPage;
+import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
+import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.eclipse.wst.server.core.*;
 import org.eclipse.wst.server.core.internal.Server;
 import org.eclipse.wst.server.core.internal.UpdateServerJob;
 import org.eclipse.wst.server.core.util.PublishAdapter;
-import org.eclipse.wst.server.ui.internal.Messages;
-import org.eclipse.wst.server.ui.internal.ServerToolTip;
-import org.eclipse.wst.server.ui.internal.Trace;
+import org.eclipse.wst.server.ui.internal.*;
 import org.eclipse.wst.server.ui.internal.wizard.NewServerWizard;
 /**
  * A view of servers, their modules, and status.
  */
-public class ServersView2 extends CommonNavigator {
+public class ServersView2 extends CommonNavigator implements ITabbedPropertySheetPageContributor  {
 	private static final String SERVERS_VIEW_CONTEXT = "org.eclipse.ui.serverViewScope";
 	
 	protected CommonViewer tableViewer;
@@ -465,4 +466,14 @@ public class ServersView2 extends CommonNavigator {
 	protected void stopThread() {
 		stopAnimation = true;
 	}
+	
+    public Object getAdapter(@SuppressWarnings("rawtypes") Class adapter) {
+        if (adapter == IPropertySheetPage.class) {
+                return new TabbedPropertySheetPage(this);
+        }
+        return super.getAdapter(adapter);
+    }
+    public String getContributorId() {
+        return ServerUIPlugin.VIEW_ID;
+    }
 }
