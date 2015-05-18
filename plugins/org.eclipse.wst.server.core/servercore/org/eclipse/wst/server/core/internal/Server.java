@@ -1904,11 +1904,12 @@ public class Server extends Base implements IServer {
 
 	protected IStatus publishBeforeStart(IProgressMonitor monitor, final StartJob startJob, final boolean synchronous){
 
+		if (((ServerType)getServerType()).startBeforePublish())
+			return Status.OK_STATUS;
+		
 		// check if we need to publish
 		byte pub = StartJob.PUBLISH_NONE;
 		if (ServerCore.isAutoPublishing() && shouldPublish()) {
-			if (((ServerType)getServerType()).startBeforePublish())
-				return Status.OK_STATUS;
 			pub = StartJob.PUBLISH_BEFORE;
 		}
 		
@@ -1954,19 +1955,6 @@ public class Server extends Base implements IServer {
 					pubJob.join();
 			} catch (InterruptedException ie) {
 				return Status.CANCEL_STATUS;
-			}
-		} else {
-			// Schedule the server start since a publish is not needed so 
-			// Schedule the server start job since the publish operation is completed successfully.
-			startJob.schedule();
-			
-			try {
-				if (synchronous)
-					startJob.join();
-			} catch (InterruptedException e) {
-				if (Trace.WARNING) {
-					Trace.trace(Trace.STRING_WARNING, "Error waiting for job", e);
-				}
 			}
 		}
 		return pubStatus[0];
@@ -2058,15 +2046,13 @@ public class Server extends Base implements IServer {
 			return;
 		}
 		
-		if (((ServerType)getServerType()).startBeforePublish()) {
-			startJob.schedule();
-			try {
-				if(synchronous)
-					startJob.join();
-			} catch (InterruptedException e) {
-				if (Trace.WARNING) {
-					Trace.trace(Trace.STRING_WARNING, "Error waiting for job", e);
-				}
+		startJob.schedule();
+		try {
+			if(synchronous)
+				startJob.join();
+		} catch (InterruptedException e) {
+			if (Trace.WARNING) {
+				Trace.trace(Trace.STRING_WARNING, "Error waiting for job", e);
 			}
 		}
 	}
@@ -2139,15 +2125,16 @@ public class Server extends Base implements IServer {
 					}
 				}
 			});
-			startJob.schedule();
-			
-			try {
-				if(synchronous)
-					startJob.join();
-			} catch (InterruptedException e) {
-				if (Trace.WARNING) {
-					Trace.trace(Trace.STRING_WARNING, "Error waiting for job", e);
-				}
+		}
+		
+		startJob.schedule();
+		
+		try {
+			if(synchronous)
+				startJob.join();
+		} catch (InterruptedException e) {
+			if (Trace.WARNING) {
+				Trace.trace(Trace.STRING_WARNING, "Error waiting for job", e);
 			}
 		}
 	}
@@ -2185,15 +2172,13 @@ public class Server extends Base implements IServer {
 			return;
 		}
 		
-		if (((ServerType)getServerType()).startBeforePublish()) {
-			startJob.schedule();
-			
-			try {
-				startJob.join();
-			} catch (InterruptedException e) {
-				if (Trace.WARNING) {
-					Trace.trace(Trace.STRING_WARNING, "Error waiting for job", e);
-				}
+		startJob.schedule();
+		
+		try {
+			startJob.join();
+		} catch (InterruptedException e) {
+			if (Trace.WARNING) {
+				Trace.trace(Trace.STRING_WARNING, "Error waiting for job", e);
 			}
 		}
 	}
