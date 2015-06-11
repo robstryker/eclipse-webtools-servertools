@@ -114,6 +114,7 @@ public class LaunchClientJob extends ChainedJob {
 		if (Trace.FINER) {
 			Trace.trace(Trace.STRING_FINER, "LaunchClient job 4");
 		}
-		return resultingStatus[0];
+		// Always return OK now, since the async-exec is handling errors
+		return Status.OK_STATUS;
 	}
 }

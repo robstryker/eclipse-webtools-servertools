@@ -11,6 +11,7 @@
 package org.eclipse.jst.server.core.internal;
 
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.jst.server.core.JndiLaunchable;
 import org.eclipse.wst.server.core.IServer;
@@ -33,6 +34,6 @@ public class J2EELaunchableClient extends ClientDelegate {
 		if (Trace.FINEST) {
 			Trace.trace(Trace.STRING_FINEST, "JNDI client launched");
 		}
-		return null;
+		return Status.OK_STATUS;
 	}
 }

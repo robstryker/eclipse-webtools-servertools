@@ -11,6 +11,7 @@
 package org.eclipse.wst.server.ui.internal;
 
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.ui.browser.IWebBrowser;
 import org.eclipse.ui.browser.IWorkbenchBrowserSupport;
@@ -42,6 +43,6 @@ public class WebLaunchableClient extends ClientDelegate {
 				Trace.trace(Trace.STRING_SEVERE, "Error opening browser", e);
 			}
 		}
-		return null;
+		return Status.OK_STATUS;
 	}
 }
