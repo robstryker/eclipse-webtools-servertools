@@ -32,21 +32,14 @@
 
   <modules>
     <module>features/org.eclipse.jst.server_adapters.ext.feature</module>
-    <module>features/org.eclipse.jst.server_adapters.ext.sdk.feature</module>
     <module>features/org.eclipse.jst.server_adapters.feature</module>
-    <module>features/org.eclipse.jst.server_adapters.sdk.feature</module>
     <module>features/org.eclipse.jst.server_core.feature</module>
-    <module>features/org.eclipse.jst.server_sdk.feature</module>
     <module>features/org.eclipse.jst.server_tests.feature</module>
     <module>features/org.eclipse.jst.server_ui.feature</module>
-    <module>features/org.eclipse.jst.server_userdoc.feature</module>
     <module>features/org.eclipse.wst.server_adapters.feature</module>
-    <module>features/org.eclipse.wst.server_adapters.sdk.feature</module>
     <module>features/org.eclipse.wst.server_core.feature</module>
-    <module>features/org.eclipse.wst.server_sdk.feature</module>
     <module>features/org.eclipse.wst.server_tests.feature</module>
     <module>features/org.eclipse.wst.server_ui.feature</module>
-    <module>features/org.eclipse.wst.server_userdoc.feature</module>
 
     <module>plugins/org.eclipse.jst.server.core</module>
     <module>plugins/org.eclipse.jst.server.generic.core</module>
@@ -73,7 +66,6 @@
     <module>plugins/org.eclipse.wst.server.ui</module>
     <module>tests/org.eclipse.jst.server.core.tests</module>
     <module>tests/org.eclipse.jst.server.generic.tests</module>
-    <module>itests</module>
     <module>tests/org.eclipse.jst.server.ui.tests</module>
     <module>tests/org.eclipse.wst.internet.monitor.core.tests</module>
     <module>tests/org.eclipse.wst.internet.monitor.ui.tests</module>
@@ -82,4 +74,47 @@
     <module>tests/org.eclipse.wst.server.ui.tests</module>
     <module>tests/org.eclipse.wst.server.util.tests</module>
   </modules>
+
+  <profiles>
+    <profile>
+      <id>itests</id>
+      <properties>
+        <skipITests>false</skipITests>
+      </properties>
+      <modules>
+        <module>itests/org.eclipse.jst.server.tomcat.core.tests</module>
+        <module>itests/org.eclipse.jst.server.tomcat.ui.tests</module>
+        <module>features/org.eclipse.jst.server_adapters.ext_tests.feature</module>
+      </modules>
+    </profile>
+
+    <profile>
+      <id>userdoc</id>
+      <properties>
+        <skipITests>false</skipITests>
+      </properties>
+      <modules>
+        <module>features/org.eclipse.jst.server_userdoc.feature</module>
+        <module>features/org.eclipse.wst.server_userdoc.feature</module>
+      </modules>
+    </profile>
+
+    <profile>
+      <id>sdk</id>
+      <properties>
+        <skipITests>false</skipITests>
+      </properties>
+      <modules>
+        <module>features/org.eclipse.jst.server_adapters.ext.sdk.feature</module>
+        <module>features/org.eclipse.jst.server_adapters.sdk.feature</module>
+        <module>features/org.eclipse.jst.server_sdk.feature</module>
+        <module>features/org.eclipse.wst.server_adapters.sdk.feature</module>
+        <module>features/org.eclipse.wst.server_sdk.feature</module>
+      </modules>
+    </profile>
+  </profiles>
+
+
+
+
 </project>
