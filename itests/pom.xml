@@ -31,6 +31,6 @@
 
   <modules>
     <module>org.eclipse.jst.server.tomcat.core.tests</module>
-    <module>org.eclipse.wst.server.tomcat.ui.tests</module>
+    <module>org.eclipse.jst.server.tomcat.ui.tests</module>
   </modules>
 </project>
