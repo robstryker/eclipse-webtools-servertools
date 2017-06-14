@@ -74,8 +74,8 @@
     <module>plugins/org.eclipse.wst.server.ui</module>
     <module>tests/org.eclipse.jst.server.core.tests</module>
     <module>tests/org.eclipse.jst.server.generic.tests</module>
-    <module>tests/org.eclipse.jst.server.tomcat.core.tests</module>
-    <module>tests/org.eclipse.jst.server.tomcat.ui.tests</module>
+    <module>itests/org.eclipse.jst.server.tomcat.core.tests</module>
+    <module>itests/org.eclipse.jst.server.tomcat.ui.tests</module>
     <module>tests/org.eclipse.jst.server.ui.tests</module>
     <module>tests/org.eclipse.wst.internet.monitor.core.tests</module>
     <module>tests/org.eclipse.wst.internet.monitor.ui.tests</module>
