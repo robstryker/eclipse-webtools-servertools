@@ -22,11 +22,16 @@
   </parent>
 
   <groupId>org.eclipse.webtools.servertools</groupId>
+<<<<<<< HEAD
   <artifactId>org.eclipse.webtools.servertools</artifactId>
+=======
+  <artifactId>org.eclipse.webtools.servertools.tests</artifactId>
+>>>>>>> 35470afc9554bf007c842712963b26bab4675a56
   <version>3.6.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
+<<<<<<< HEAD
     <tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/servertools/webtools.servertools.git</tycho.scmUrl>
   </properties>
 
@@ -72,5 +77,22 @@
     <module>plugins/org.eclipse.wst.server.preview</module>
     <module>plugins/org.eclipse.wst.server.preview.adapter</module>
     <module>plugins/org.eclipse.wst.server.ui</module>
+=======
+    <tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/servertools/webtools.servertools.tests.git</tycho.scmUrl>
+  </properties>
+
+  <modules>
+    <module>tests/org.eclipse.jst.server.core.tests</module>
+    <module>tests/org.eclipse.jst.server.generic.tests</module>
+    <module>tests/org.eclipse.jst.server.tomcat.core.tests</module>
+    <module>tests/org.eclipse.jst.server.tomcat.ui.tests</module>
+    <module>tests/org.eclipse.jst.server.ui.tests</module>
+    <module>tests/org.eclipse.wst.internet.monitor.core.tests</module>
+    <module>tests/org.eclipse.wst.internet.monitor.ui.tests</module>
+    <module>tests/org.eclipse.wst.server.core.tests</module>
+    <module>tests/org.eclipse.wst.server.http.core.tests</module>
+    <module>tests/org.eclipse.wst.server.ui.tests</module>
+    <module>tests/org.eclipse.wst.server.util.tests</module>
+>>>>>>> 35470afc9554bf007c842712963b26bab4675a56
   </modules>
 </project>
