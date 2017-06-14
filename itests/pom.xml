@@ -27,6 +27,7 @@
   <packaging>pom</packaging>
 
   <properties>
+	  <skipITests>false</skipITests>
   </properties>
 
   <modules>
