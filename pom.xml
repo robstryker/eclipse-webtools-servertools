@@ -33,7 +33,6 @@
   <modules>
     <module>features/org.eclipse.jst.server_adapters.ext.feature</module>
     <module>features/org.eclipse.jst.server_adapters.ext.sdk.feature</module>
-    <module>features/org.eclipse.jst.server_adapters.ext_tests.feature</module>
     <module>features/org.eclipse.jst.server_adapters.feature</module>
     <module>features/org.eclipse.jst.server_adapters.sdk.feature</module>
     <module>features/org.eclipse.jst.server_core.feature</module>

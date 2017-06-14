@@ -26,12 +26,17 @@
   <version>3.6.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <properties>
-	  <skipITests>false</skipITests>
-  </properties>
-
-  <modules>
-    <module>org.eclipse.jst.server.tomcat.core.tests</module>
-    <module>org.eclipse.jst.server.tomcat.ui.tests</module>
-  </modules>
+  <profiles>
+    <profile>
+      <id>itests</id>
+      <properties>
+        <skipITests>false</skipITests>
+      </properties>
+      <modules>
+        <module>org.eclipse.jst.server.tomcat.core.tests</module>
+        <module>org.eclipse.jst.server.tomcat.ui.tests</module>
+        <module>../features/org.eclipse.jst.server_adapters.ext_tests.feature</module>
+      </modules>
+    </profile>
+  </profiles>
 </project>
